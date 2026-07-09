@@ -1,0 +1,255 @@
+:root {
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --text-muted: #595959;
+  --accent: #0f5ea8;
+  --accent-hover: #0a406f;
+  --rule: #e4e4e4;
+  --tag-bg: #f2f4f6;
+  --tag-border: #d9dde2;
+  --max-width: 46rem;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14161a;
+    --text: #e6e6e6;
+    --text-muted: #a0a0a0;
+    --accent: #7db4e8;
+    --accent-hover: #a8ccf0;
+    --rule: #2c2f35;
+    --tag-bg: #1e2126;
+    --tag-border: #34383f;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.25rem 4rem;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 1.9rem;
+  line-height: 1.25;
+  margin: 0 0 0.25rem;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin: 3rem 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--rule);
+  letter-spacing: 0.01em;
+}
+
+h3 {
+  font-size: 1rem;
+  margin: 1.5rem 0 0.5rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+/* Header / nav */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 2.5rem;
+}
+
+.site-header nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.9rem 1.25rem;
+  display: flex;
+  align-items: baseline;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  color: var(--text);
+  margin-right: auto;
+}
+
+.site-header .brand:hover {
+  text-decoration: none;
+}
+
+.site-header a {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.site-header a:hover,
+.site-header a[aria-current='page'] {
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* Intro / hero */
+.intro {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.intro .portrait {
+  width: 180px;
+  height: auto;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.intro .lede {
+  flex: 1;
+  min-width: 16rem;
+}
+
+.contact-line {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.contact-line a + a::before {
+  content: '·';
+  color: var(--text-muted);
+  margin: 0 0.55rem;
+  display: inline-block;
+}
+
+/* Publications */
+.pub-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pub-list li {
+  margin-bottom: 1.35rem;
+}
+
+.pub-title {
+  font-weight: 600;
+}
+
+.pub-authors,
+.pub-venue {
+  display: block;
+  font-size: 0.93rem;
+  color: var(--text-muted);
+}
+
+.pub-links {
+  margin-top: 0.15rem;
+  display: inline-flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.pub-links a {
+  font-size: 0.8rem;
+  padding: 0.05rem 0.5rem;
+  border: 1px solid var(--tag-border);
+  border-radius: 99px;
+  background: var(--tag-bg);
+}
+
+.pub-links a:hover {
+  text-decoration: none;
+  border-color: var(--accent);
+}
+
+/* Education */
+.edu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.edu-list li {
+  margin-bottom: 1.35rem;
+}
+
+.edu-list .period {
+  float: right;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-left: 1rem;
+}
+
+.edu-list .degree {
+  display: block;
+  font-weight: 600;
+}
+
+.edu-list .detail {
+  display: block;
+  font-size: 0.93rem;
+  color: var(--text-muted);
+}
+
+/* Music page embed */
+.embed-frame {
+  border: 0;
+  width: 100%;
+  border-radius: 6px;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  margin-top: 3rem;
+}
+
+.site-footer .inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.25rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 540px) {
+  .intro .portrait {
+    width: 140px;
+  }
+}

@@ -1,0 +1,41 @@
+---
+import type { Publication } from '../data/publications';
+
+interface Props {
+  pub: Publication;
+}
+
+const { pub } = Astro.props;
+
+// Split the author string so the site owner's name can be emphasized.
+const AUTHOR = 'Youngjun Choi';
+const parts = pub.authors.split(AUTHOR);
+---
+
+<li>
+  <span class="pub-title">{pub.title}</span>
+  <span class="pub-authors">
+    {
+      parts.map((part, i) => (
+        <>
+          {part}
+          {i < parts.length - 1 && <strong>{AUTHOR}</strong>}
+        </>
+      ))
+    }
+  </span>
+  <span class="pub-venue">
+    {pub.venue}{pub.note && <em> ({pub.note})</em>}
+  </span>
+  {
+    pub.links.length > 0 && (
+      <span class="pub-links">
+        {pub.links.map((link) => (
+          <a href={link.url} target="_blank" rel="noopener">
+            {link.label}
+          </a>
+        ))}
+      </span>
+    )
+  }
+</li>

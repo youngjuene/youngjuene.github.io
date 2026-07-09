@@ -1,0 +1,80 @@
+---
+import Base from '../layouts/Base.astro';
+import PublicationEntry from '../components/PublicationEntry.astro';
+import { profile, bioHtml } from '../data/profile';
+import { publications, publicationYears } from '../data/publications';
+import { education } from '../data/education';
+---
+
+<Base>
+  <section class="intro" id="about">
+    <img
+      class="portrait"
+      src={profile.photo}
+      alt={`Portrait of ${profile.name}`}
+      width="180"
+    />
+    <div class="lede">
+      <h1>{profile.name}</h1>
+      <p class="muted" style="margin-top:0">{profile.role}</p>
+      <p set:html={bioHtml} />
+      <p>
+        Please find my <a href={profile.cv} target="_blank" rel="noopener">CV</a> linked here.
+      </p>
+      <p class="contact-line">
+        {
+          profile.social.map((s) => (
+            <a
+              href={s.url}
+              target={s.url.startsWith('http') ? '_blank' : undefined}
+              rel={s.url.startsWith('http') ? 'noopener' : undefined}
+            >
+              {s.label}
+            </a>
+          ))
+        }
+      </p>
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2>Publications</h2>
+    {
+      publicationYears.map((year) => (
+        <>
+          <h3>{year}</h3>
+          <ul class="pub-list">
+            {publications
+              .filter((p) => p.year === year)
+              .map((pub) => (
+                <PublicationEntry pub={pub} />
+              ))}
+          </ul>
+        </>
+      ))
+    }
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <ul class="edu-list">
+      {
+        education.map((edu) => (
+          <li>
+            <span class="period">{edu.period}</span>
+            {edu.institution}
+            <span class="degree">{edu.degree}</span>
+            <span class="detail" set:html={edu.detailHtml} />
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>
+      <a href={`mailto:${profile.email}`}>{profile.email}</a>
+    </p>
+  </section>
+</Base>

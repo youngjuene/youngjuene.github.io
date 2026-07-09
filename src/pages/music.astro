@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+
+const soundcloudUrl = 'https://soundcloud.com/01ch';
+const embedSrc = `https://w.soundcloud.com/player/?url=${encodeURIComponent(
+  soundcloudUrl
+)}&color=%23555555&auto_play=false&show_user=true&show_teaser=false`;
+---
+
+<Base title="Music · Youngjun Choi" description="Music and sound works by Youngjun Choi (youngjuene) on SoundCloud.">
+  <h1>Music 🎶☁️</h1>
+  <p class="muted">
+    Sounds I make and share as
+    <a href={soundcloudUrl} target="_blank" rel="noopener">youngjuene</a> on SoundCloud.
+  </p>
+  <iframe
+    class="embed-frame"
+    title="youngjuene on SoundCloud"
+    height="500"
+    allow="autoplay"
+    loading="lazy"
+    src={embedSrc}></iframe>
+</Base>
