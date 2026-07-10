@@ -24,7 +24,7 @@ All content lives in plain data files — no HTML editing needed for routine upd
 | Bio, CV link, social links | `src/data/profile.ts` |
 | News items | `src/data/news.ts` (newest first) |
 | Publications | `src/data/publications.ts` (add a new entry at the top; `type` drives the Journal/Conference filter) |
-| Works gallery | `src/data/works.ts` + images in `public/images/works/` |
+| Works gallery (hidden for now) | `src/data/works.ts` + images in `public/images/works/`; re-enable by renaming `src/pages/_works.astro` back to `works.astro` and restoring the nav link in `src/layouts/Base.astro` |
 | Experience | `src/data/experience.ts` (section appears once non-empty) |
 | Service / Talks / Teaching | `src/data/activities.ts` (each sub-list appears once non-empty) |
 | Education | `src/data/education.ts` |
