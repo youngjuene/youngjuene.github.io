@@ -16,8 +16,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Build with Astro
-        uses: withastro/action@v3
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Build Astro site
+        run: |
+          npm ci
+          npm run build
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build MkDocs course site into /courses
+        run: |
+          pip install mkdocs-material
+          mkdocs build -f courses/mkdocs.yml -d "$GITHUB_WORKSPACE/dist/courses"
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
 
   deploy:
     needs: build

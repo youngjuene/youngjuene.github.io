@@ -1,0 +1,51 @@
+site_name: "CT500: Mediated Atmospheres"
+site_url: https://youngjuene.github.io/courses/
+site_description: Course pages by Youngjun Choi, KAIST Graduate School of Culture Technology
+site_author: Youngjun Choi
+
+docs_dir: docs
+
+theme:
+  name: material
+  language: en
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.footer
+    - content.code.copy
+    - toc.integrate
+
+nav:
+  - Home: index.md
+  - Programming Assignments: programming-assignments.md
+  - Exams: exams.md
+
+extra:
+  social:
+    - icon: material/home
+      link: https://youngjuene.github.io/
+      name: youngjuene.github.io
+    - icon: material/school
+      link: https://scholar.google.com/citations?user=9QV2MuwAAAAJ
+      name: Google Scholar
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - footnotes
+  - tables
+  - pymdownx.details
+  - pymdownx.superfences
