@@ -16,52 +16,33 @@ const activityGroups = [
 ---
 
 <Base>
-  <section class="intro" id="about">
-    <img
-      class="portrait"
-      src={profile.photo}
-      alt={`Portrait of ${profile.name}`}
-      width="180"
-    />
-    <div class="lede">
-      <h1>{profile.name}</h1>
-      <p class="muted" style="margin-top:0">{profile.role}</p>
-      <p set:html={bioHtml} />
-      <p>
-        Please find my <a href={profile.cv} target="_blank" rel="noopener">CV</a> linked here.
-      </p>
-      <p class="contact-line">
-        {
-          profile.social.map((s) => (
-            <a
-              href={s.url}
-              target={s.url.startsWith('http') ? '_blank' : undefined}
-              rel={s.url.startsWith('http') ? 'noopener' : undefined}
-            >
-              {s.label}
-            </a>
-          ))
-        }
-      </p>
-    </div>
+  <h1 class="visually-hidden">{profile.name}</h1>
+
+  <section class="card" id="about">
+    <p set:html={bioHtml} style="margin-top:0" />
+    <p style="margin-bottom:0">
+      Please find my <a href={profile.cv} target="_blank" rel="noopener">CV</a> linked here.
+    </p>
   </section>
 
   {
     news.length > 0 && (
-      <section id="news">
+      <section class="card" id="news">
         <h2>News</h2>
         <ul class="news-list">
           {news.map((item) => (
             <li>
               <span class="news-date">{item.date}</span>
-              <span class="news-text" set:html={item.html} />
-              {item.link && (
-                <span class="pub-links">
-                  <a href={item.link.url} target="_blank" rel="noopener">
-                    {item.link.label}
-                  </a>
-                </span>
-              )}
+              <span class="news-text">
+                <Fragment set:html={item.html} />
+                {item.link && (
+                  <span class="pub-links">
+                    <a href={item.link.url} target="_blank" rel="noopener">
+                      {item.link.label}
+                    </a>
+                  </span>
+                )}
+              </span>
             </li>
           ))}
         </ul>
@@ -69,7 +50,7 @@ const activityGroups = [
     )
   }
 
-  <section id="publications">
+  <section class="card" id="publications">
     <h2>Publications</h2>
     <p class="muted legend">★ selected works</p>
     {
@@ -86,14 +67,14 @@ const activityGroups = [
         </>
       ))
     }
-    <p class="muted">
+    <p class="muted" style="margin-bottom:0">
       More publications on <a href={profile.scholar} target="_blank" rel="noopener">Google Scholar</a>.
     </p>
   </section>
 
   {
     experience.length > 0 && (
-      <section id="experience">
+      <section class="card" id="experience">
         <h2>Experience</h2>
         <ul class="edu-list">
           {experience.map((exp) => (
@@ -110,7 +91,7 @@ const activityGroups = [
     )
   }
 
-  <section id="education">
+  <section class="card" id="education">
     <h2>Education</h2>
     <ul class="edu-list">
       {
@@ -128,36 +109,33 @@ const activityGroups = [
 
   {
     activityGroups.length > 0 && (
-      <section id="activities">
+      <section class="card" id="activities">
         <h2>Service, Talks &amp; Teaching</h2>
-        {activityGroups.map((group) => (
-          <>
-            <h3>{group.label}</h3>
-            <ul class="news-list">
-              {group.items.map((item) => (
-                <li>
-                  <span class="news-date">{item.date}</span>
-                  <span class="news-text" set:html={item.html} />
-                  {item.link && (
-                    <span class="pub-links">
-                      <a href={item.link.url} target="_blank" rel="noopener">
-                        {item.link.label}
-                      </a>
+        {
+          activityGroups.map((group) => (
+            <>
+              <h3>{group.label}</h3>
+              <ul class="news-list">
+                {group.items.map((item) => (
+                  <li>
+                    <span class="news-date">{item.date}</span>
+                    <span class="news-text">
+                      <Fragment set:html={item.html} />
+                      {item.link && (
+                        <span class="pub-links">
+                          <a href={item.link.url} target="_blank" rel="noopener">
+                            {item.link.label}
+                          </a>
+                        </span>
+                      )}
                     </span>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </>
-        ))}
+                  </li>
+                ))}
+              </ul>
+            </>
+          ))
+        }
       </section>
     )
   }
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>
-      <a href={`mailto:${profile.email}`}>{profile.email}</a>
-    </p>
-  </section>
 </Base>

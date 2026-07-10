@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Sidebar from '../components/Sidebar.astro';
 import { profile } from '../data/profile';
 
 interface Props {
@@ -57,9 +58,12 @@ const year = new Date().getFullYear();
         }
       </nav>
     </header>
-    <main>
-      <slot />
-    </main>
+    <div class="shell">
+      <Sidebar />
+      <main>
+        <slot />
+      </main>
+    </div>
     <footer class="site-footer">
       <div class="inner">
         © {year} {profile.name} · Built with <a href="https://astro.build/">Astro</a> ·

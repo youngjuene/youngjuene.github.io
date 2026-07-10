@@ -1,0 +1,38 @@
+---
+import { profile } from '../data/profile';
+---
+
+<aside class="sidebar">
+  <img
+    class="portrait"
+    src={profile.photo}
+    alt={`Portrait of ${profile.name}`}
+    width="220"
+  />
+  <p class="side-name">{profile.name}</p>
+  <p class="side-role">
+    Ph.D. Student<br />
+    Graduate School of Culture Technology, KAIST
+  </p>
+  <p class="side-role">
+    <a href={profile.lab.url} target="_blank" rel="noopener">{profile.lab.name}</a><br />
+    Advisor: <a href={profile.advisor.url} target="_blank" rel="noopener">{profile.advisor.name}</a>
+  </p>
+  <hr />
+  <p class="side-links">
+    <a href={profile.cv} target="_blank" rel="noopener">Curriculum Vitae</a>
+    <a href={`mailto:${profile.email}`}>{profile.email}</a>
+  </p>
+  <hr />
+  <p class="side-social">
+    {
+      profile.social
+        .filter((s) => s.label !== 'Email')
+        .map((s) => (
+          <a href={s.url} target="_blank" rel="noopener">
+            {s.label}
+          </a>
+        ))
+    }
+  </p>
+</aside>
