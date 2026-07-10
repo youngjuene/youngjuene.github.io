@@ -6,6 +6,8 @@ export interface Publication {
   /** Group heading the entry is listed under (e.g. "2025", "In Press"). */
   year: string;
   note?: string;
+  /** Marked with a ★ in the list to help visitors triage. */
+  selected?: boolean;
   links: { label: string; url: string }[];
 }
 
@@ -18,6 +20,7 @@ export const publications: Publication[] = [
     venue: 'Leonardo',
     year: 'In Press',
     note: 'Accepted',
+    selected: true,
     links: [{ label: 'project', url: 'https://synphysica.com/Streams-in-the-Veins' }],
   },
   {
@@ -26,6 +29,7 @@ export const publications: Publication[] = [
     venue:
       'ARTECH 2025 — Proceedings of the 12th International Conference on Digital and Interactive Arts',
     year: '2025',
+    selected: true,
     links: [{ label: 'paper', url: 'https://doi.org/10.1145/3773699.3774367' }],
   },
   {
@@ -35,6 +39,7 @@ export const publications: Publication[] = [
     venue: 'Leonardo',
     year: '2025',
     note: 'A&HCI, Q1',
+    selected: true,
     links: [
       { label: 'paper', url: 'https://doi.org/10.1162/leon_a_02704' },
       { label: 'video', url: 'https://vimeo.com/853254789' },
@@ -101,6 +106,7 @@ export const publications: Publication[] = [
     venue:
       'Proceedings of the International Symposium of Electronic/Emerging Art (ISEA) 2024',
     year: '2024',
+    selected: true,
     links: [
       {
         label: 'paper',
@@ -114,6 +120,7 @@ export const publications: Publication[] = [
     authors: 'Philip Liu*, Youngjun Choi*, Jinjoon Lee (*equal contribution)',
     venue: 'Proceedings of the International Computer Music Conference (ICMC) 2023',
     year: '2023',
+    selected: true,
     links: [
       {
         label: 'paper',

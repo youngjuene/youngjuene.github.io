@@ -4,6 +4,15 @@ import PublicationEntry from '../components/PublicationEntry.astro';
 import { profile, bioHtml } from '../data/profile';
 import { publications, publicationYears } from '../data/publications';
 import { education } from '../data/education';
+import { news } from '../data/news';
+import { experience } from '../data/experience';
+import { service, talks, teaching } from '../data/activities';
+
+const activityGroups = [
+  { label: 'Service', items: service },
+  { label: 'Talks', items: talks },
+  { label: 'Teaching', items: teaching },
+].filter((g) => g.items.length > 0);
 ---
 
 <Base>
@@ -37,8 +46,32 @@ import { education } from '../data/education';
     </div>
   </section>
 
+  {
+    news.length > 0 && (
+      <section id="news">
+        <h2>News</h2>
+        <ul class="news-list">
+          {news.map((item) => (
+            <li>
+              <span class="news-date">{item.date}</span>
+              <span class="news-text" set:html={item.html} />
+              {item.link && (
+                <span class="pub-links">
+                  <a href={item.link.url} target="_blank" rel="noopener">
+                    {item.link.label}
+                  </a>
+                </span>
+              )}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
   <section id="publications">
     <h2>Publications</h2>
+    <p class="muted legend">★ selected works</p>
     {
       publicationYears.map((year) => (
         <>
@@ -53,7 +86,29 @@ import { education } from '../data/education';
         </>
       ))
     }
+    <p class="muted">
+      More publications on <a href={profile.scholar} target="_blank" rel="noopener">Google Scholar</a>.
+    </p>
   </section>
+
+  {
+    experience.length > 0 && (
+      <section id="experience">
+        <h2>Experience</h2>
+        <ul class="edu-list">
+          {experience.map((exp) => (
+            <li>
+              <span class="period">{exp.period}</span>
+              {exp.organization}
+              <span class="degree">{exp.role}</span>
+              {exp.detailHtml && <span class="detail" set:html={exp.detailHtml} />}
+              {exp.location && <span class="detail muted">{exp.location}</span>}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
 
   <section id="education">
     <h2>Education</h2>
@@ -70,6 +125,34 @@ import { education } from '../data/education';
       }
     </ul>
   </section>
+
+  {
+    activityGroups.length > 0 && (
+      <section id="activities">
+        <h2>Service, Talks &amp; Teaching</h2>
+        {activityGroups.map((group) => (
+          <>
+            <h3>{group.label}</h3>
+            <ul class="news-list">
+              {group.items.map((item) => (
+                <li>
+                  <span class="news-date">{item.date}</span>
+                  <span class="news-text" set:html={item.html} />
+                  {item.link && (
+                    <span class="pub-links">
+                      <a href={item.link.url} target="_blank" rel="noopener">
+                        {item.link.label}
+                      </a>
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </>
+        ))}
+      </section>
+    )
+  }
 
   <section id="contact">
     <h2>Contact</h2>

@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import { works } from '../data/works';
+---
+
+<Base
+  title="Works · Youngjun Choi"
+  description="Selected artistic and research works by Youngjun Choi — installations, compositions, and computational systems for mediated atmospheres."
+>
+  <h1>Works</h1>
+  <p class="muted">
+    Selected artistic and research works. See <a href="/#publications">publications</a> for
+    the full academic record.
+  </p>
+  <div class="works-list">
+    {
+      works.map((work) => (
+        <article class="work-card">
+          {work.image && (
+            <img src={work.image} alt={work.imageAlt ?? work.title} loading="lazy" />
+          )}
+          <div class="work-body">
+            <h2>{work.title} <span class="muted work-year">{work.year}</span></h2>
+            <p set:html={work.descriptionHtml} />
+            <span class="pub-links">
+              {work.links.map((link) => (
+                <a href={link.url} target="_blank" rel="noopener">
+                  {link.label}
+                </a>
+              ))}
+            </span>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</Base>

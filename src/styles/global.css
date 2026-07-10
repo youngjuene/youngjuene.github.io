@@ -156,6 +156,39 @@ h3 {
   display: inline-block;
 }
 
+/* News & activity lists */
+.news-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.news-list li {
+  margin-bottom: 0.55rem;
+  padding-left: 6.2rem;
+  text-indent: -6.2rem;
+}
+
+.news-date {
+  display: inline-block;
+  width: 5.6rem;
+  margin-right: 0.6rem;
+  text-indent: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  vertical-align: baseline;
+}
+
+.news-text {
+  text-indent: 0;
+}
+
+.legend {
+  font-size: 0.85rem;
+  margin: -0.5rem 0 1rem;
+}
+
 /* Publications */
 .pub-list {
   list-style: none;
@@ -183,6 +216,7 @@ h3 {
   display: inline-flex;
   gap: 0.4rem;
   flex-wrap: wrap;
+  text-indent: 0;
 }
 
 .pub-links a {
@@ -225,6 +259,76 @@ h3 {
   display: block;
   font-size: 0.93rem;
   color: var(--text-muted);
+}
+
+.pub-star {
+  color: #c9a227;
+  margin-right: 0.35rem;
+}
+
+/* Works gallery */
+.works-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.work-card {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.work-card img {
+  width: 260px;
+  max-width: 40%;
+  height: auto;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.work-card .work-body {
+  flex: 1;
+  min-width: 14rem;
+}
+
+.work-card h2 {
+  margin: 0 0 0.5rem;
+  border: none;
+  padding: 0;
+  font-size: 1.15rem;
+}
+
+.work-card p {
+  margin: 0 0 0.6rem;
+  font-size: 0.95rem;
+}
+
+.work-year {
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 540px) {
+  .work-card {
+    flex-direction: column;
+  }
+
+  .work-card img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .news-list li {
+    padding-left: 0;
+    text-indent: 0;
+  }
+
+  .news-date {
+    display: block;
+    width: auto;
+  }
 }
 
 /* Music page embed */

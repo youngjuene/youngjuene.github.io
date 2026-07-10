@@ -13,7 +13,9 @@ const parts = pub.authors.split(AUTHOR);
 ---
 
 <li>
-  <span class="pub-title">{pub.title}</span>
+  <span class="pub-title">
+    {pub.selected && <span class="pub-star" title="Selected work">★</span>}{pub.title}
+  </span>
   <span class="pub-authors">
     {
       parts.map((part, i) => (
