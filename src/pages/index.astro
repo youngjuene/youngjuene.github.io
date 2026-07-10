@@ -8,6 +8,9 @@ import { news } from '../data/news';
 import { experience } from '../data/experience';
 import { service, talks, teaching } from '../data/activities';
 
+// Toggle to re-enable the News card once entries are curated.
+const showNews = false;
+
 const activityGroups = [
   { label: 'Service', items: service },
   { label: 'Talks', items: talks },
@@ -26,7 +29,7 @@ const activityGroups = [
   </section>
 
   {
-    news.length > 0 && (
+    showNews && news.length > 0 && (
       <section class="card" id="news">
         <h2>News</h2>
         <ul class="news-list">
