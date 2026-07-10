@@ -39,8 +39,8 @@ artifact.
 - **Final work** — presented and critiqued in Week 11 (Nov 12); shown again at
   the final exhibition (Week 16, Dec 17).
 - **Sharing** — every proposal and final work is posted to the
-  [Assignment Dashboard](dashboard.md); discussion and feedback happen in the
-  [Agora](agora.md).
+  [Assignment Dashboard](dashboard.md); feedback happens in class during the
+  critique sessions.
 
 ## Contact
 

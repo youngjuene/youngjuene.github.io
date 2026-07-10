@@ -46,7 +46,7 @@ Theory*, offered in the spring semester.
 
 ### Module 2 · AI That Tunes the Senses: Multimodal AI, Sound, Image, Atmosphere
 
-!!! info "Led by [Youngjun Choi](https://youngjuene.github.io/) — see the [module page](module2/index.md) for sessions, the [assignment dashboard](module2/dashboard.md), and the [agora](module2/agora.md)"
+!!! info "Led by [Youngjun Choi](https://youngjuene.github.io/) — see the [module page](module2/index.md) for sessions and the [assignment dashboard](module2/dashboard.md)"
 
 1. What aesthetic symptoms reveal the differences between human sensory
    experience and AI's way of processing data?

@@ -33,7 +33,6 @@ nav:
   - "Module 2 · Multimodal AI":
       - Overview: module2/index.md
       - Assignment Dashboard: module2/dashboard.md
-      - Agora: module2/agora.md
 
 extra:
   social:
