@@ -30,6 +30,10 @@ theme:
 
 nav:
   - Home: index.md
+  - "Module 2 · Multimodal AI":
+      - Overview: module2/index.md
+      - Assignment Dashboard: module2/dashboard.md
+      - Agora: module2/agora.md
 
 extra:
   social:
@@ -43,6 +47,7 @@ extra:
 markdown_extensions:
   - admonition
   - attr_list
+  - md_in_html
   - footnotes
   - tables
   - pymdownx.details
