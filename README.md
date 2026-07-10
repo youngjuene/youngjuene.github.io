@@ -23,7 +23,7 @@ All content lives in plain data files — no HTML editing needed for routine upd
 | --- | --- |
 | Bio, CV link, social links | `src/data/profile.ts` |
 | News items | `src/data/news.ts` (newest first) |
-| Publications | `src/data/publications.ts` (add a new entry at the top; `selected: true` marks it with a ★) |
+| Publications | `src/data/publications.ts` (add a new entry at the top; `type` drives the Journal/Conference filter) |
 | Works gallery | `src/data/works.ts` + images in `public/images/works/` |
 | Experience | `src/data/experience.ts` (section appears once non-empty) |
 | Service / Talks / Teaching | `src/data/activities.ts` (each sub-list appears once non-empty) |

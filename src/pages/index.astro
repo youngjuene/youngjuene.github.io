@@ -52,10 +52,14 @@ const activityGroups = [
 
   <section class="card" id="publications">
     <h2>Publications</h2>
-    <p class="muted legend">★ selected works</p>
+    <div class="filter-tabs" role="group" aria-label="Filter publications by type">
+      <button type="button" class="active" data-filter="all">All</button>
+      <button type="button" data-filter="journal">Journal</button>
+      <button type="button" data-filter="conference">Conference</button>
+    </div>
     {
       publicationYears.map((year) => (
-        <>
+        <div class="pub-group">
           <h3>{year}</h3>
           <ul class="pub-list">
             {publications
@@ -64,13 +68,32 @@ const activityGroups = [
                 <PublicationEntry pub={pub} />
               ))}
           </ul>
-        </>
+        </div>
       ))
     }
     <p class="muted" style="margin-bottom:0">
       More publications on <a href={profile.scholar} target="_blank" rel="noopener">Google Scholar</a>.
     </p>
   </section>
+
+  <script>
+    const tabs = document.querySelectorAll<HTMLButtonElement>('.filter-tabs button');
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const filter = tab.dataset.filter;
+        tabs.forEach((t) => t.classList.toggle('active', t === tab));
+        document.querySelectorAll<HTMLElement>('.pub-group').forEach((group) => {
+          let visible = 0;
+          group.querySelectorAll<HTMLElement>('.pub-list li').forEach((li) => {
+            const show = filter === 'all' || li.dataset.type === filter;
+            li.hidden = !show;
+            if (show) visible++;
+          });
+          group.hidden = visible === 0;
+        });
+      });
+    });
+  </script>
 
   {
     experience.length > 0 && (

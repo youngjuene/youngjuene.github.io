@@ -6,8 +6,7 @@ export interface Publication {
   /** Group heading the entry is listed under (e.g. "2025", "In Press"). */
   year: string;
   note?: string;
-  /** Marked with a ★ in the list to help visitors triage. */
-  selected?: boolean;
+  type: 'journal' | 'conference';
   links: { label: string; url: string }[];
 }
 
@@ -19,8 +18,8 @@ export const publications: Publication[] = [
       'Chiao Chi Chou, Youyang Hu, Youngjun Choi, Kaito Muramatsu, Jinjoon Lee, Yasuaki Kakehi',
     venue: 'Leonardo',
     year: 'In Press',
+    type: 'journal',
     note: 'Accepted',
-    selected: true,
     links: [{ label: 'project', url: 'https://synphysica.com/Streams-in-the-Veins' }],
   },
   {
@@ -29,7 +28,7 @@ export const publications: Publication[] = [
     venue:
       'ARTECH 2025 — Proceedings of the 12th International Conference on Digital and Interactive Arts',
     year: '2025',
-    selected: true,
+    type: 'conference',
     links: [{ label: 'paper', url: 'https://doi.org/10.1145/3773699.3774367' }],
   },
   {
@@ -38,8 +37,8 @@ export const publications: Publication[] = [
     authors: 'Youngjun Choi, Honggi Lee, Jinjoon Lee',
     venue: 'Leonardo',
     year: '2025',
+    type: 'journal',
     note: 'A&HCI, Q1',
-    selected: true,
     links: [
       { label: 'paper', url: 'https://doi.org/10.1162/leon_a_02704' },
       { label: 'video', url: 'https://vimeo.com/853254789' },
@@ -58,6 +57,7 @@ export const publications: Publication[] = [
     venue:
       'Proceedings of the International Symposium of Electronic/Emerging Art (ISEA) 2025',
     year: '2025',
+    type: 'conference',
     links: [{ label: 'paper', url: 'https://data.doi.or.kr/10.23362/KOEN2025.07.25.2.140' }],
   },
   {
@@ -67,6 +67,7 @@ export const publications: Publication[] = [
     venue:
       'Proceedings of the International Symposium of Electronic/Emerging Art (ISEA) 2025',
     year: '2025',
+    type: 'conference',
     links: [{ label: 'paper', url: 'https://data.doi.or.kr/10.23362/KOEN2025.07.25.1.072' }],
   },
   {
@@ -76,6 +77,7 @@ export const publications: Publication[] = [
     venue:
       'Proceedings of the International Symposium of Electronic/Emerging Art (ISEA) 2025',
     year: '2025',
+    type: 'conference',
     links: [{ label: 'paper', url: 'https://data.doi.or.kr/10.23362/KOEN2025.07.25.3.206' }],
   },
   {
@@ -85,6 +87,7 @@ export const publications: Publication[] = [
       'Doyo Choi, Ye Won Kim, Youngjun Choi, Sungbaek Kim, Hangyeol Kang, Jinjoon Lee',
     venue: 'Proceedings of the HCI Society of Korea 2025',
     year: '2025',
+    type: 'conference',
     links: [
       {
         label: 'paper',
@@ -98,6 +101,7 @@ export const publications: Publication[] = [
     venue:
       'Proceedings of the International Conference on New Interfaces for Musical Expression (NIME) 2024',
     year: '2024',
+    type: 'conference',
     links: [{ label: 'paper', url: 'https://www.nime.org/proc/nime2024_5/index.html' }],
   },
   {
@@ -106,7 +110,7 @@ export const publications: Publication[] = [
     venue:
       'Proceedings of the International Symposium of Electronic/Emerging Art (ISEA) 2024',
     year: '2024',
-    selected: true,
+    type: 'conference',
     links: [
       {
         label: 'paper',
@@ -120,7 +124,7 @@ export const publications: Publication[] = [
     authors: 'Philip Liu*, Youngjun Choi*, Jinjoon Lee (*equal contribution)',
     venue: 'Proceedings of the International Computer Music Conference (ICMC) 2023',
     year: '2023',
-    selected: true,
+    type: 'conference',
     links: [
       {
         label: 'paper',
@@ -134,6 +138,7 @@ export const publications: Publication[] = [
     authors: 'Jaehong Kim*, Seungwoo Jeon*, Youngjun Choi* (*equal contribution)',
     venue: 'Proceedings of the HCI Society of Korea 2023',
     year: '2023',
+    type: 'conference',
     links: [
       {
         label: 'paper',
@@ -147,6 +152,7 @@ export const publications: Publication[] = [
     venue:
       'Extended Abstracts of the Annual Symposium on Computer-Human Interaction in Play (CHI PLAY) 2021',
     year: '2021',
+    type: 'conference',
     links: [{ label: 'paper', url: 'https://dl.acm.org/doi/pdf/10.1145/3450337.3483509' }],
   },
 ];
