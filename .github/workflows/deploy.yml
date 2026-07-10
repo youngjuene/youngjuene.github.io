@@ -25,14 +25,17 @@ jobs:
         run: |
           npm ci
           npm run build
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - name: Build MkDocs course site into /courses
-        run: |
-          pip install mkdocs-material
-          mkdocs build -f courses/mkdocs.yml -d "$GITHUB_WORKSPACE/dist/courses"
+      # Courses (MkDocs) site is hidden until the course is released.
+      # To publish it again, uncomment the two steps below and restore the
+      # "Courses" nav link in src/layouts/Base.astro.
+      # - name: Setup Python
+      #   uses: actions/setup-python@v5
+      #   with:
+      #     python-version: '3.12'
+      # - name: Build MkDocs course site into /courses
+      #   run: |
+      #     pip install mkdocs-material
+      #     mkdocs build -f courses/mkdocs.yml -d "$GITHUB_WORKSPACE/dist/courses"
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

@@ -30,7 +30,7 @@ All content lives in plain data files — no HTML editing needed for routine upd
 | Education | `src/data/education.ts` |
 | Profile photo | `public/images/profile.jpg` |
 | Music page / SoundCloud | `src/pages/music.astro` |
-| Courses (MkDocs, served at `/courses/`) | `courses/docs/*.md` + `courses/mkdocs.yml`; page templates kept in `courses/templates/` (not built) |
+| Courses (MkDocs, hidden for now) | `courses/docs/*.md` + `courses/mkdocs.yml`; page templates kept in `courses/templates/`. Not published until the course is released — re-enable by uncommenting the MkDocs steps in `.github/workflows/deploy.yml` and restoring the "Courses" nav link in `src/layouts/Base.astro` |
 
 ## Deployment
 
