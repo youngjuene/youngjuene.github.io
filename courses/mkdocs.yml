@@ -1,4 +1,4 @@
-site_name: "CT500: Mediated Atmospheres"
+site_name: "Creative AI: Creation and Practice"
 site_url: https://youngjuene.github.io/courses/
 site_description: Course pages by Youngjun Choi, KAIST Graduate School of Culture Technology
 site_author: Youngjun Choi
@@ -30,8 +30,6 @@ theme:
 
 nav:
   - Home: index.md
-  - Programming Assignments: programming-assignments.md
-  - Exams: exams.md
 
 extra:
   social:
